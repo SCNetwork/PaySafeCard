@@ -15,7 +15,7 @@ class PaySafeCard {
       throw new Error('Please specify environment in options');
     }
 
-    if(options.environment == 'PRODUCTION') {
+    if(options.environment === 'PRODUCTION') {
       this.host = "https://api.paysafecard.com/v1/";
     } else {
       this.host = "https://apitest.paysafecard.com/v1";
@@ -35,7 +35,7 @@ class PaySafeCard {
 
     let body;
 
-    if(method == 'POST' && data) {
+    if(method === 'POST' && data) {
       body = JSON.stringify(data);
     }
     const req = await fetch(url, {
