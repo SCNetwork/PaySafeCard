@@ -52,17 +52,7 @@ class PaySafeCard {
   }
 
   async createPayment(options) {
-    let customer = {};
-
-    if(options.customer) {
-      customer = {
-        id: options.customer.id,
-        min_age: options.customer.migAge || undefined,
-        kyc_level: options.customer.kycRestriction || undefined,
-        country_restriction: options.customer.countryRestriction || undefined
-      }
-    }
-    const res = await this.request('POST', '/payments', {
+    return await this.request('POST', '/payments', {
       currency: options.currency,
       amount: options.amount,
       customer: options.customer,
@@ -72,9 +62,8 @@ class PaySafeCard {
       },
       type: 'PAYSAFECARD',
       notification_url: options.urls.notification,
-      shop_id: options.shopId || ""
+      shop_id: options.shopId || null
     });
-    return res;
   }
 
   async getPaymentInfo(id) {
