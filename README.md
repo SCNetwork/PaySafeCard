@@ -1,18 +1,16 @@
 # PaySafeCard
-Unofficial PaySafeCard Node.js wrapper
-
-[![npm version](https://badge.fury.io/js/paysafecard.svg)](https://badge.fury.io/js/paysafecard)
+Unofficial PaySafeCard Node.js wrapper. This is a fork of [pieczorx/PaySafeCard](https://github.com/pieczorx/PaySafeCard) a package with some bugs and which seems unmaintained. As we use this package in our production environment, we will update it regular and provide support if needed. 
 
 ## Important
 This module uses ES6 promises, so if you need older Node version support please use Babel.
 ## Install
 ```bash
-npm i paysafecard
+npm i @scnetwork/paysafecard
 ```
 
 ## Set api key and environment
 ```javascript
-const PaySafeCard = require('paysafecard');
+const PaySafeCard = require('@scnetwork/paysafecard');
 
 const psc = new PaySafeCard({
   key: 'psc_123456789012345678901-123456789', //Paste your api key here
@@ -51,7 +49,7 @@ async () => {
 }
 ```
 
-#### Check payment status & capture it if succeded
+#### Check payment status & capture it if succeeded
 ```javascript
 async () => {
   try {
